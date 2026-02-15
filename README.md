@@ -1,6 +1,8 @@
 
 # The Dog API - Dog Tinder
 
+![Puppy](./public/pembroke-welsh-corgi-puppy_1000x.jpg)
+
 Swipe through dog breeds, save favorites, and view your saved list.
 
 ## Features
