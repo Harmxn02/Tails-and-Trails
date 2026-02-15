@@ -86,7 +86,7 @@ export default function DogTinderPage() {
 	return (
 		<div className="app-shell">
 			<div className="app-frame">
-				<Header likedCount={likedCount} />
+				<Header likedCount={likedCount} linkHref="/saved" linkLabel="Saved dogs" />
 				<DogCard key={dog?.id || "loading"} dog={dog} dragX={dragX} isDragging={isDragging} swipeState={swipeState} swipeSide={swipeSide} onPointerDown={handlePointerDown} onPointerMove={handlePointerMove} onPointerUp={handlePointerUp} onPointerCancel={handlePointerCancel} />
 				<SwipeActions onNo={() => handleSwipe("left")} onYes={() => handleSwipe("right")} />
 				<p className="hint-text">Drag to decide or tap a button.</p>
