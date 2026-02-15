@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import dogData from "../../../data/thedogapi_data.json";
+import dogData from "../../data/thedogapi_data.json";
 import DogCard from "./DogCard";
 import Header from "./Header";
 import SwipeActions from "./SwipeActions";
