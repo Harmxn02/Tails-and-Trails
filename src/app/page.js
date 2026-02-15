@@ -1,5 +1,5 @@
-import DogTinder from "./DogTinder";
+import DogTinderPage from "../components/DogTinderPage";
 
 export default function Home() {
-	return <DogTinder />;
+	return <DogTinderPage />;
 }

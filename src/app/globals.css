@@ -1,26 +1,290 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--background: #fdf3e7;
+	--foreground: #1b1410;
+	--accent: #f05a4f;
+	--accent-2: #f7a45b;
+	--ink: #2b1d17;
+	--card: rgba(255, 255, 255, 0.86);
+	--card-border: rgba(48, 30, 24, 0.12);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--font-display: var(--font-display);
+	--font-body: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+	box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+	background: var(--background);
+	color: var(--foreground);
+	font-family: var(--font-body), "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.font-display {
+	font-family: var(--font-display), "Georgia", "Times New Roman", serif;
+}
+
+.app-shell {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 32px 16px;
+	background-image: radial-gradient(circle at 10% 10%, rgba(240, 90, 79, 0.25), transparent 45%), radial-gradient(circle at 90% 5%, rgba(247, 164, 91, 0.25), transparent 45%), linear-gradient(120deg, #fdf4ea 0%, #f7d9c2 50%, #fcebd9 100%);
+}
+
+.app-frame {
+	width: min(980px, 100%);
+	display: flex;
+	flex-direction: column;
+	gap: 22px;
+}
+
+.header {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.header-copy {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.eyebrow {
+	text-transform: uppercase;
+	letter-spacing: 0.24em;
+	font-size: 12px;
+	color: #4b3a33;
+}
+
+.title {
+	font-size: clamp(32px, 4vw, 44px);
+	color: var(--ink);
+}
+
+.subtitle {
+	max-width: 520px;
+	color: #4b3a33;
+	font-size: 15px;
+}
+
+.liked-chip {
+	background: rgba(255, 255, 255, 0.7);
+	border: 1px solid var(--card-border);
+	padding: 10px 14px;
+	border-radius: 16px;
+	text-align: center;
+	min-width: 90px;
+}
+
+.liked-number {
+	font-size: 22px;
+	font-weight: 700;
+	color: var(--ink);
+	display: block;
+}
+
+.liked-label {
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	color: #4b3a33;
+}
+
+.card-shell {
+	position: relative;
+	border-radius: 28px;
+	overflow: hidden;
+	background: var(--card);
+	border: 1px solid var(--card-border);
+	box-shadow: 0 24px 60px rgba(25, 12, 10, 0.18);
+	height: min(70vh, 640px);
+	min-height: 420px;
+}
+
+.card-interactive {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.card-image {
+	object-fit: contain;
+	object-position: center;
+	filter: brightness(0.9);
+}
+
+.card-image-fill {
+	object-fit: cover;
+	filter: blur(12px) brightness(0.9);
+}
+
+.card-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to top, rgba(20, 12, 10, 0.75) 0%, rgba(20, 12, 10, 0.3) 45%, rgba(20, 12, 10, 0.05) 70%, transparent 100%);
+}
+
+.card-content {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 28px;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.title-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.card-title {
+	font-size: clamp(26px, 3vw, 36px);
+}
+
+.card-badge {
+	background: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 999px;
+	padding: 4px 10px;
+	font-size: 12px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+
+.pill-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.pill {
+	background: rgba(255, 255, 255, 0.18);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 999px;
+	padding: 6px 12px;
+	font-size: 12px;
+}
+
+.card-loading {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #7a645a;
+	font-size: 15px;
+}
+
+.swipe-label {
+	position: absolute;
+	top: 22px;
+	padding: 6px 12px;
+	border-radius: 999px;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	font-size: 12px;
+	color: #fff;
+}
+
+.swipe-label.right {
+	left: 24px;
+	background: rgba(58, 178, 117, 0.9);
+}
+
+.swipe-label.left {
+	right: 24px;
+	background: rgba(228, 92, 92, 0.9);
+}
+
+.action-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 22px;
+}
+
+.action-button {
+	width: 64px;
+	height: 64px;
+	border-radius: 999px;
+	border: 1px solid rgba(32, 20, 16, 0.12);
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	box-shadow: 0 12px 24px rgba(24, 12, 8, 0.18);
+	transition:
+		transform 0.15s ease,
+		box-shadow 0.15s ease;
+}
+
+.action-button--no {
+	background: linear-gradient(135deg, #f2a59b, #f7c2b2);
+	color: #3a1410;
+}
+
+.action-button--yes {
+	background: linear-gradient(135deg, #f7c96f, #f3a45c);
+	color: #3b1e0f;
+}
+
+.action-button:hover {
+	transform: translateY(-2px) scale(1.02);
+	box-shadow: 0 16px 30px rgba(24, 12, 8, 0.22);
+}
+
+.action-button:active {
+	transform: translateY(0);
+}
+
+.hint-text {
+	text-align: center;
+	color: #4b3a33;
+	font-size: 13px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.animate-rise {
+	animation: rise 420ms ease both;
+}
+
+@keyframes rise {
+	from {
+		opacity: 0;
+		transform: translateY(16px) scale(0.98);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+@media (max-width: 768px) {
+	.header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.liked-chip {
+		align-self: flex-start;
+	}
 }
