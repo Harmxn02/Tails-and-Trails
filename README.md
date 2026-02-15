@@ -1,4 +1,4 @@
-# Trails and Tails
+# Tails and Trails
 
 ![Puppy](./public/pembroke-welsh-corgi-puppy_1000x.jpg)
 
