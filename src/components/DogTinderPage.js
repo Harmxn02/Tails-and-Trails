@@ -80,14 +80,14 @@ export default function DogTinderPage() {
 		setDragX(0);
 	};
 
-	const swipeLabel = dragX > 25 ? "YES" : dragX < -25 ? "NO" : "";
+	const swipeState = dragX > 25 ? "yes" : dragX < -25 ? "no" : "";
 	const swipeSide = dragX > 0 ? "right" : "left";
 
 	return (
 		<div className="app-shell">
 			<div className="app-frame">
 				<Header likedCount={likedCount} />
-				<DogCard key={dog?.id || "loading"} dog={dog} dragX={dragX} isDragging={isDragging} swipeLabel={swipeLabel} swipeSide={swipeSide} onPointerDown={handlePointerDown} onPointerMove={handlePointerMove} onPointerUp={handlePointerUp} onPointerCancel={handlePointerCancel} />
+				<DogCard key={dog?.id || "loading"} dog={dog} dragX={dragX} isDragging={isDragging} swipeState={swipeState} swipeSide={swipeSide} onPointerDown={handlePointerDown} onPointerMove={handlePointerMove} onPointerUp={handlePointerUp} onPointerCancel={handlePointerCancel} />
 				<SwipeActions onNo={() => handleSwipe("left")} onYes={() => handleSwipe("right")} />
 				<p className="hint-text">Drag to decide or tap a button.</p>
 			</div>
