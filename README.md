@@ -1,9 +1,16 @@
-
-# The Dog API - Dog Tinder
+# Trails and Tails
 
 ![Puppy](./public/pembroke-welsh-corgi-puppy_1000x.jpg)
 
 Swipe through dog breeds, save favorites, and view your saved list.
+
+## Tech stack
+
+- Next.js (App Router)
+- Tailwind CSS
+
+> [!NOTE]
+> No data is stored in any server. Saved dogs are stored in your browser's local storage, under the key `dogtinder_yes`. This means that if you delete your browser data or switch to a different browser/device, your saved dogs will not be available.
 
 ## Features
 
@@ -11,11 +18,6 @@ Swipe through dog breeds, save favorites, and view your saved list.
 - Yes/No buttons
 - Saved dogs stored in localStorage
 - Saved list at `/saved`
-
-## Tech stack
-
-- Next.js (App Router)
-- Tailwind CSS
 
 <!-- ## Getting started
 
@@ -35,10 +37,6 @@ Open `http://localhost:3000`. -->
 - `frontend/src/app` routes
 - `frontend/src/components` UI components
 - `data/thedogapi_data.json` data source -->
-
-## Local storage
-
-No data is stored in any server. Saved dogs are stored in your browser's local storage, under the key `dogtinder_yes`. This means that if you delete your browser data or switch to a different browser/device, your saved dogs will not be available.
 
 <!-- ## Scripts
 
