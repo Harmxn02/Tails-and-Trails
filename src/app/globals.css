@@ -152,8 +152,13 @@ body {
 }
 
 .fill-blurred-background {
-	object-fit: cover;
-	filter: blur(12px) brightness(0.9);
+    position: absolute;
+    inset: -20px; /* overshoot to hide blur edges */
+    background-size: cover;
+    background-position: center;
+    filter: blur(18px);
+    transform: scale(1.05);
+    z-index: 0;
 }
 
 .card-overlay {

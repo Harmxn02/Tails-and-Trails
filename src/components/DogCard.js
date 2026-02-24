@@ -25,9 +25,9 @@ export default function DogCard({ dog, dragX, isDragging, swipeState, swipeSide,
 
 	return (
 		<div className="card-shell animate-rise">
+			<div className="fill-blurred-background" style={{ backgroundImage: `url(${dog.image?.url})` }} aria-hidden="true" />
 			<div className="card-interactive touch-pan-y select-none" onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onPointerCancel={onPointerCancel} style={cardStyle}>
-				<Image src={dog.image?.url || ""} alt={dog.name} fill sizes="20px" className="fill-blurred-background" draggable="false" />
-				<Image src={dog.image?.url || ""} alt={dog.name} fill sizes="1080px" className="card-image" draggable="false" />
+				<Image src={dog.image?.url || ""} alt={dog.name} fill sizes="720px" className="card-image" draggable="false" />
 				<div className="card-overlay" />
 				{swipeState ? (
 					<div
